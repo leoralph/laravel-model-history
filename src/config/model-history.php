@@ -1,3 +1,6 @@
 <?php
+use LeoRalph\ModelHistory\Models\History;
 
-return [];
+return [
+    'model' => History::class,
+];
