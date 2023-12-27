@@ -12,5 +12,13 @@ class History extends Model
         'performed_at' => 'datetime',
     ];
 
+    protected $fillable = [
+        'model_type',
+        'model_id',
+        'event',
+        'previous',
+        'changes',
+    ];
+
     public $timestamps = false;
 }
