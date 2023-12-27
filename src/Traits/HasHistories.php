@@ -15,6 +15,6 @@ trait HasHistories
 
     public function histories(): MorphMany
     {
-        return $this->morphMany(config('model-history.model'), History::class);
+        return $this->morphMany(config('model-history.model'), 'model');
     }
 }
