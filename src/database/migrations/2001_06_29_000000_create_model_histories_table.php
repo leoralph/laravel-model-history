@@ -15,6 +15,7 @@ class CreateHistoriesTable extends Migration
             $table->string('event');
             $table->json('previous')->nullable();
             $table->json('changes')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamp('performed_at')->useCurrent();
         });
     }

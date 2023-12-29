@@ -14,6 +14,7 @@ class HistoryObserver
             'event' => 'created',
             'previous' => null,
             'changes' => $model->withoutRelations()->toArray(),
+            'notes' => $model::$notes
         ]);
     }
 
@@ -27,6 +28,7 @@ class HistoryObserver
             'event' => 'updated',
             'previous' => array_intersect_key($model->getOriginal(), $changes),
             'changes' => $changes,
+            'notes' => $model::$notes
         ]);
     }
 
@@ -38,6 +40,7 @@ class HistoryObserver
             'event' => 'deleted',
             'previous' => $model->withoutRelations()->toArray(),
             'changes' => null,
+            'notes' => $model::$notes
         ]);
     }
 
@@ -49,6 +52,7 @@ class HistoryObserver
             'event' => 'restored',
             'previous' => $model->withoutRelations()->toArray(),
             'changes' => null,
+            'notes' => $model::$notes
         ]);
     }
 
@@ -60,6 +64,7 @@ class HistoryObserver
             'event' => 'forceDeleted',
             'previous' => $model->withoutRelations()->toArray(),
             'changes' => null,
+            'notes' => $model::$notes
         ]);
     }
 }
