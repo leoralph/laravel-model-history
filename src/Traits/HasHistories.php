@@ -8,7 +8,7 @@ use LeoRalph\ModelHistory\Observers\HistoryObserver;
 
 trait HasHistories
 {
-    public static string $notes;
+    public static string $notes = '';
 
     public static function bootHasHistories()
     {

@@ -4,13 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHistoriesTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->morphs('historiable');
+            $table->uuidMorphs('historiable');
             $table->nullableMorphs('causer');
             $table->string('event');
             $table->json('previous')->nullable();
@@ -24,4 +24,4 @@ class CreateHistoriesTable extends Migration
     {
         Schema::dropIfExists('histories');
     }
-}
+};
