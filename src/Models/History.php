@@ -3,6 +3,7 @@
 namespace LeoRalph\ModelHistory\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class History extends Model
 {
@@ -21,4 +22,9 @@ class History extends Model
     ];
 
     public $timestamps = false;
+
+    public function causer(): MorphTo
+    {
+        return $this->morphTo();
+    }
 }

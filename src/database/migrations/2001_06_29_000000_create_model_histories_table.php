@@ -10,7 +10,7 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->morphs('model');
+            $table->morphs('historiable');
             $table->nullableMorphs('causer');
             $table->string('event');
             $table->json('previous')->nullable();
