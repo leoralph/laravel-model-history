@@ -9,8 +9,8 @@ class HistoryObserver
     public function created(Model $model)
     {
         $model->histories()->create([
-            'model_type' => $model->getMorphClass(),
-            'model_id' => $model->getKey(),
+            'historiable_type' => $model->getMorphClass(),
+            'historiable_id' => $model->getKey(),
             'event' => 'created',
             'previous' => null,
             'changes' => $model->withoutRelations()->toArray(),
@@ -22,8 +22,8 @@ class HistoryObserver
         $changes = $model->getChanges();
 
         $model->histories()->create([
-            'model_type' => $model->getMorphClass(),
-            'model_id' => $model->getKey(),
+            'historiable_type' => $model->getMorphClass(),
+            'historiable_id' => $model->getKey(),
             'event' => 'updated',
             'previous' => array_intersect_key($model->getOriginal(), $changes),
             'changes' => $changes,
@@ -33,8 +33,8 @@ class HistoryObserver
     public function deleted(Model $model)
     {
         $model->histories()->create([
-            'model_type' => $model->getMorphClass(),
-            'model_id' => $model->getKey(),
+            'historiable_type' => $model->getMorphClass(),
+            'historiable_id' => $model->getKey(),
             'event' => 'deleted',
             'previous' => $model->withoutRelations()->toArray(),
             'changes' => null,
@@ -44,8 +44,8 @@ class HistoryObserver
     public function restored(Model $model)
     {
         $model->histories()->create([
-            'model_type' => $model->getMorphClass(),
-            'model_id' => $model->getKey(),
+            'historiable_type' => $model->getMorphClass(),
+            'historiable_id' => $model->getKey(),
             'event' => 'restored',
             'previous' => $model->withoutRelations()->toArray(),
             'changes' => null,
@@ -55,8 +55,8 @@ class HistoryObserver
     public function forceDeleted(Model $model)
     {
         $model->histories()->create([
-            'model_type' => $model->getMorphClass(),
-            'model_id' => $model->getKey(),
+            'historiable_type' => $model->getMorphClass(),
+            'historiable_id' => $model->getKey(),
             'event' => 'forceDeleted',
             'previous' => $model->withoutRelations()->toArray(),
             'changes' => null,
